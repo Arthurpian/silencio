@@ -1,0 +1,118 @@
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(124, 124, 235);
+    width: 100%;
+    height: 3.3rem;
+}
+
+.nome{
+    color: #fff;
+    font-size: 36px;
+}
+
+.list ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 4rem;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    padding-block: 1rem;
+}
+
+.hamburger{
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid #fff;
+    cursor: pointer;
+}
+
+.hamburger::before,
+.hamburger::after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    margin-top: 5px;
+    margin-top: 5px;
+    position: relative;
+}
+
+@media (max-width: 750px){
+    .hamburger{
+        display: block;
+        z-index: 1;
+    }
+
+    .list{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;  
+        background: rgb(124, 124, 235);
+        clip-path: circle(100px at 90% -15%);
+        transition: 1s ease-out;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        pointer-events: none;
+    }
+
+    .list ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .list ul a{
+        font-size: 24px;
+        opacity: 0;
+    }
+
+
+    .list li:nth-child(1) a {
+        transition: 0.5s 0.2s;
+    }
+    .list li:nth-child(2) a {
+        transition: 0.5s 0.4s;
+    }
+    .list li:nth-child(3) a {
+        transition: 0.5s 0.5s;
+    }
+
+    .nav.active .list a{
+        opacity: 1;
+    }
+
+    .nav.active .list{
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+
+    .nav.active .hamburger{
+        position: fixed;
+        top: 16px;
+        right: 10%;
+        border-top-color: transparent;
+    }
+
+    .nav.active .hamburger::before{
+        transform: rotate(135deg);
+    }
+
+    .nav.active .hamburger::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}
+
