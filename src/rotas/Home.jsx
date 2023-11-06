@@ -13,7 +13,7 @@ function Home() {
           <div className={style.titulo}>
             <h1>Mais vendidos</h1>
           </div>
-          <div className={style.livro}>
+          <div className={style.livros}>
             <div className={style.carrosel}>
                 {data.map((item) => (
                         <div className={style.id} key={item.id}>
